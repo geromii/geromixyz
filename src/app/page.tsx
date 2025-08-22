@@ -24,7 +24,7 @@ export default function Home() {
       {/* Mobile Header */}
       <div className="md:hidden sticky top-0 z-50 bg-background/80 backdrop-blur-sm border-b border-border/50">
         <div className="flex items-center justify-between p-4">
-          <h1 className="text-2xl font-bold bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent animate-gradient bg-300%">
+          <h1 className="text-2xl font-bold animate-gradient">
             Geromi
           </h1>
           <button
@@ -101,7 +101,7 @@ export default function Home() {
         {/* Sidebar - Desktop */}
         <aside className="hidden md:flex w-80 border-r border-border/50 bg-background/80 backdrop-blur-sm p-8 flex-col fixed h-full">
           <div className="mb-12">
-            <h1 className="text-3xl font-bold bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent animate-gradient bg-300%">
+            <h1 className="text-3xl font-bold animate-gradient">
               Geromi
             </h1>
             <p className="text-sm text-muted-foreground mt-2">Jeremy Russell</p>
@@ -155,7 +155,7 @@ export default function Home() {
                     <div className={`w-8 h-8 rounded-lg ${item.bgClass} flex items-center justify-center`}>
                       <div className={`w-3 h-3 rounded-full ${item.dotClass}`}></div>
                     </div>
-                    <span className="font-medium group-hover:translate-x-1 transition-transform">
+                    <span className="font-medium">
                       {item.label}
                     </span>
                   </Link>

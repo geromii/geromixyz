@@ -163,11 +163,33 @@
 
 @layer utilities {
   .animate-gradient {
-    animation: gradient 6s ease infinite;
+    background: linear-gradient(
+      90deg,
+      var(--primary) 0%,
+      var(--secondary) 20%,
+      oklch(0.7693 0.117 211.9627) 40%,
+      var(--primary) 60%,
+      var(--secondary) 80%,
+      var(--primary) 100%
+    );
+    background-size: 200% 100%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    animation: gradient-wave 4s linear infinite;
   }
   
   .bg-300\% {
     background-size: 300%;
+  }
+  
+  @keyframes gradient-wave {
+    0% {
+      background-position: 0% 50%;
+    }
+    100% {
+      background-position: 100% 50%;
+    }
   }
   
   @keyframes gradient {
