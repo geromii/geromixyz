@@ -8,10 +8,10 @@ import { Dialog, DialogContent, DialogTrigger, DialogTitle, DialogPortal } from 
 import * as DialogPrimitive from "@radix-ui/react-dialog";
 
 const navItems = [
-  { href: "/blog", label: "Blog", dotClass: "bg-primary", bgClass: "bg-primary/10", hoverClass: "hover:bg-primary/10" },
-  { href: "/projects", label: "Projects", dotClass: "bg-secondary", bgClass: "bg-secondary/10", hoverClass: "hover:bg-secondary/10" },
-  { href: "/journal", label: "Journal", dotClass: "bg-accent", bgClass: "bg-accent/10", hoverClass: "hover:bg-accent/10" },
-  { href: "/about", label: "About", dotClass: "bg-primary", bgClass: "bg-primary/10", hoverClass: "hover:bg-primary/10" },
+  { href: "/projects", label: "Projects", dotClass: "bg-primary", bgClass: "bg-primary/10", hoverClass: "hover:bg-primary/10" },
+  { href: "/blog", label: "Blog", dotClass: "bg-blue-500", bgClass: "bg-blue-500/10", hoverClass: "hover:bg-blue-500/10" },
+  { href: "/journal", label: "Journal", dotClass: "bg-blue-500", bgClass: "bg-blue-500/10", hoverClass: "hover:bg-blue-500/10" },
+  { href: "/contact", label: "Contact", dotClass: "bg-blue-500", bgClass: "bg-blue-500/10", hoverClass: "hover:bg-blue-500/10" },
 ];
 
 export default function Home() {
@@ -153,7 +153,7 @@ export default function Home() {
                     className={`group flex items-center gap-3 px-4 py-3 rounded-lg ${item.hoverClass} transition-all duration-200`}
                   >
                     <div className={`w-8 h-8 rounded-lg ${item.bgClass} flex items-center justify-center`}>
-                      <div className={`w-3 h-3 rounded-full ${item.dotClass}`}></div>
+                      <div className={`w-3 h-3 rounded-full ${item.dotClass} transition-all duration-200 group-hover:w-4 group-hover:h-4`}></div>
                     </div>
                     <span className="font-medium">
                       {item.label}
@@ -186,57 +186,73 @@ export default function Home() {
                 </p>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-12">
-                <div className="space-y-6">
-                  <div>
-                    <h3 className="text-lg font-semibold mb-2 flex items-center gap-2">
-                      <div className="w-2 h-2 rounded-full bg-primary"></div>
-                      Latest Posts
-                    </h3>
-                    <p className="text-muted-foreground text-sm">
-                      Coming soon... Check back for thoughts on tech, coding, and life.
-                    </p>
-                  </div>
-                  
-                  <div>
-                    <h3 className="text-lg font-semibold mb-2 flex items-center gap-2">
-                      <div className="w-2 h-2 rounded-full bg-accent"></div>
-                      This Week
-                    </h3>
-                    <p className="text-muted-foreground text-sm">
-                      Weekly reflections will appear here.
-                    </p>
-                  </div>
-                </div>
-
-                <div className="space-y-6">
-                  <div>
-                    <h3 className="text-lg font-semibold mb-2 flex items-center gap-2">
-                      <div className="w-2 h-2 rounded-full bg-secondary"></div>
-                      Current Focus
-                    </h3>
-                    <p className="text-muted-foreground text-sm">
-                      Building this personal site and exploring new web technologies.
-                    </p>
-                  </div>
-                  
-                  <div>
-                    <h3 className="text-lg font-semibold mb-2 flex items-center gap-2">
-                      <div className="w-2 h-2 rounded-full bg-primary"></div>
-                      Get in Touch
-                    </h3>
-                    <p className="text-muted-foreground text-sm">
-                      Feel free to reach out if you want to collaborate or just say hi.
-                    </p>
-                  </div>
-                </div>
-              </div>
-
               {/* Decorative elements */}
-              <div className="flex items-center gap-4 pt-8">
+              <div className="flex items-center justify-center gap-4 py-8">
                 <div className="h-1 w-16 bg-gradient-to-r from-primary to-secondary rounded-full"></div>
                 <div className="h-1 w-16 bg-gradient-to-r from-secondary to-accent rounded-full"></div>
                 <div className="h-1 w-16 bg-gradient-to-r from-accent to-primary rounded-full"></div>
+              </div>
+
+              <div className="space-y-8">
+                {/* Featured Projects Card */}
+                <Link href="/projects" className="block group">
+                  <div className="border-2 border-primary/30 rounded-xl p-6 bg-primary/5 hover:bg-primary/10 hover:border-primary/50 transition-all duration-300">
+                    <h3 className="text-2xl font-bold mb-3 flex items-center gap-3 text-primary">
+                      <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
+                        <div className="w-4 h-4 rounded-full bg-primary"></div>
+                      </div>
+                      Projects
+                    </h3>
+                    <p className="text-muted-foreground">
+                      Building this personal site and exploring new web technologies. Check out what I'm working on.
+                    </p>
+                  </div>
+                </Link>
+
+                {/* Other sections in grid */}
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                  <Link href="/blog" className="block group h-full">
+                    <div className="border-2 border-blue-500/30 rounded-xl p-6 bg-blue-500/5 hover:bg-blue-500/10 hover:border-blue-500/50 transition-all duration-200 h-full">
+                      <h3 className="text-lg font-semibold mb-2 flex items-center gap-2 text-blue-600 dark:text-blue-400">
+                        <div className="w-8 h-8 rounded-lg bg-blue-500/10 flex items-center justify-center">
+                          <div className="w-3 h-3 rounded-full bg-blue-500"></div>
+                        </div>
+                        Blog
+                      </h3>
+                      <p className="text-muted-foreground text-sm">
+                        Coming soon... Check back for thoughts on tech, coding, and life.
+                      </p>
+                    </div>
+                  </Link>
+                  
+                  <Link href="/journal" className="block group h-full">
+                    <div className="border-2 border-blue-500/30 rounded-xl p-6 bg-blue-500/5 hover:bg-blue-500/10 hover:border-blue-500/50 transition-all duration-200 h-full">
+                      <h3 className="text-lg font-semibold mb-2 flex items-center gap-2 text-blue-600 dark:text-blue-400">
+                        <div className="w-8 h-8 rounded-lg bg-blue-500/10 flex items-center justify-center">
+                          <div className="w-3 h-3 rounded-full bg-blue-500"></div>
+                        </div>
+                        Journal
+                      </h3>
+                      <p className="text-muted-foreground text-sm">
+                        Weekly reflections will appear here.
+                      </p>
+                    </div>
+                  </Link>
+                  
+                  <Link href="/contact" className="block group h-full">
+                    <div className="border-2 border-blue-500/30 rounded-xl p-6 bg-blue-500/5 hover:bg-blue-500/10 hover:border-blue-500/50 transition-all duration-200 h-full">
+                      <h3 className="text-lg font-semibold mb-2 flex items-center gap-2 text-blue-600 dark:text-blue-400">
+                        <div className="w-8 h-8 rounded-lg bg-blue-500/10 flex items-center justify-center">
+                          <div className="w-3 h-3 rounded-full bg-blue-500"></div>
+                        </div>
+                        Contact
+                      </h3>
+                      <p className="text-muted-foreground text-sm">
+                        Get in touch with me for collaborations or just to say hi.
+                      </p>
+                    </div>
+                  </Link>
+                </div>
               </div>
             </section>
           </div>
