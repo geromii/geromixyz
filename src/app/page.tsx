@@ -22,7 +22,7 @@ export default function Home() {
       <div className="fixed inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]"></div>
       
       {/* Mobile Header */}
-      <div className="md:hidden sticky top-0 z-50 bg-background/80 backdrop-blur-sm border-b border-border/50">
+      <div className="md:hidden sticky top-0 z-[70] bg-background/80 backdrop-blur-sm border-b border-border/50">
         <div className="flex items-center justify-between p-4">
           <h1 className="text-2xl font-bold animate-gradient">
             Geromi
@@ -38,8 +38,14 @@ export default function Home() {
 
       {/* Mobile Menu Overlay */}
       {mobileMenuOpen && (
-        <div className="md:hidden fixed inset-0 z-[60] bg-background/95 backdrop-blur-md">
-          <div className="p-8 pt-20">
+        <div
+          className="md:hidden fixed inset-0 z-[60] bg-background/95 backdrop-blur-md"
+          onClick={() => setMobileMenuOpen(false)}
+        >
+          <div
+            className="p-8 pt-20"
+            onClick={(e) => e.stopPropagation()}
+          >
             <div className="mb-8">
               <Dialog>
                 <DialogTrigger asChild>
@@ -99,7 +105,7 @@ export default function Home() {
       
       <div className="relative flex min-h-screen">
         {/* Sidebar - Desktop */}
-        <aside className="hidden md:flex w-80 border-r border-border/50 bg-background/80 backdrop-blur-sm p-8 flex-col fixed h-full">
+        <aside className="hidden md:flex w-64 border-r border-border/50 bg-background/80 backdrop-blur-sm p-6 flex-col fixed h-full">
           <div className="mb-12">
             <h1 className="text-3xl font-bold animate-gradient">
               Geromi
@@ -173,7 +179,7 @@ export default function Home() {
         </aside>
 
         {/* Main Content */}
-        <main className="flex-1 md:ml-80 overflow-y-auto">
+        <main className="flex-1 md:ml-64 overflow-y-auto">
           <div className="max-w-4xl mx-auto px-6 md:px-12 py-12 md:py-20">
             <section className="space-y-8">
               <div>
