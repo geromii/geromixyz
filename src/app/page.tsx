@@ -3,7 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Menu, X } from "lucide-react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Dialog, DialogContent, DialogTrigger, DialogTitle, DialogPortal } from "@/components/ui/dialog";
 import * as DialogPrimitive from "@radix-ui/react-dialog";
 
@@ -16,6 +16,28 @@ const navItems = [
 
 export default function Home() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [isAnimating, setIsAnimating] = useState(false);
+  const [isClosing, setIsClosing] = useState(false);
+
+  useEffect(() => {
+    if (mobileMenuOpen && !isClosing) {
+      // Start slide-in animation
+      setIsAnimating(true);
+      setTimeout(() => setIsAnimating(false), 10); // Small delay to trigger animation
+    }
+  }, [mobileMenuOpen, isClosing]);
+
+  const closeMobileMenu = () => {
+    setIsClosing(true);
+    setTimeout(() => {
+      setMobileMenuOpen(false);
+      setIsClosing(false);
+    }, 300); // Match animation duration
+  };
+
+  const openMobileMenu = () => {
+    setMobileMenuOpen(true);
+  };
 
   return (
     <div className="min-h-screen bg-background relative">
@@ -28,7 +50,7 @@ export default function Home() {
             Geromi
           </h1>
           <button
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            onClick={() => mobileMenuOpen ? closeMobileMenu() : openMobileMenu()}
             className="p-2 rounded-lg hover:bg-muted"
           >
             {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -39,8 +61,10 @@ export default function Home() {
       {/* Mobile Menu Overlay */}
       {mobileMenuOpen && (
         <div
-          className="md:hidden fixed inset-0 z-[60] bg-background/95 backdrop-blur-md animate-in slide-in-from-right duration-300"
-          onClick={() => setMobileMenuOpen(false)}
+          className={`md:hidden fixed inset-0 z-[60] bg-background/95 backdrop-blur-md transition-transform duration-300 ${
+            isAnimating ? "translate-x-full" : isClosing ? "translate-x-full" : "translate-x-0"
+          }`}
+          onClick={closeMobileMenu}
         >
           <div
             className="p-8 pt-20"
@@ -87,7 +111,7 @@ export default function Home() {
                   <li key={item.href}>
                     <Link
                       href={item.href}
-                      onClick={() => setMobileMenuOpen(false)}
+                      onClick={closeMobileMenu}
                       className={`flex items-center gap-3 px-4 py-3 rounded-lg ${item.hoverClass} transition-all duration-200`}
                     >
                       <div className={`w-8 h-8 rounded-lg ${item.bgClass} flex items-center justify-center`}>
