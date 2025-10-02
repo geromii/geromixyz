@@ -39,7 +39,7 @@ export default function Home() {
       {/* Mobile Menu Overlay */}
       {mobileMenuOpen && (
         <div
-          className="md:hidden fixed inset-0 z-[60] bg-background/95 backdrop-blur-md"
+          className="md:hidden fixed inset-0 z-[60] bg-background/95 backdrop-blur-md animate-in slide-in-from-right duration-300"
           onClick={() => setMobileMenuOpen(false)}
         >
           <div
