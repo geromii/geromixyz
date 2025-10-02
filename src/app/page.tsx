@@ -4,7 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { Menu, X } from "lucide-react";
 import { useState, useEffect } from "react";
-import { Dialog, DialogContent, DialogTrigger, DialogTitle, DialogPortal } from "@/components/ui/dialog";
+import { Dialog, DialogTrigger, DialogTitle, DialogPortal } from "@/components/ui/dialog";
 import * as DialogPrimitive from "@radix-ui/react-dialog";
 
 const navItems = [
@@ -205,7 +205,7 @@ export default function Home() {
                   Welcome to my digital space
                 </h2>
                 <p className="text-xl text-muted-foreground leading-relaxed max-w-3xl">
-                  I'm a developer who loves building things on the internet. 
+                  I&apos;m a developer who loves building things on the internet. 
                   This is where I share my thoughts, showcase my work, and document my journey.
                 </p>
               </div>
@@ -228,7 +228,7 @@ export default function Home() {
                       Projects
                     </h3>
                     <p className="text-muted-foreground">
-                      Building this personal site and exploring new web technologies. Check out what I'm working on.
+                      Building this personal site and exploring new web technologies. Check out what I&apos;m working on.
                     </p>
                   </div>
                 </Link>
