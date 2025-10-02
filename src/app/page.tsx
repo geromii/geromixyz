@@ -46,9 +46,9 @@ export default function Home() {
       {/* Mobile Header */}
       <div className="md:hidden sticky top-0 z-[70] bg-background/80 backdrop-blur-sm border-b border-border/50">
         <div className="flex items-center justify-between p-4">
-          <h1 className="text-2xl font-bold animate-gradient">
+          <Link href="/" className="text-2xl font-bold animate-gradient">
             Geromi
-          </h1>
+          </Link>
           <button
             onClick={() => mobileMenuOpen ? closeMobileMenu() : openMobileMenu()}
             className="p-2 rounded-lg hover:bg-muted"
@@ -131,9 +131,9 @@ export default function Home() {
         {/* Sidebar - Desktop */}
         <aside className="hidden md:flex w-64 border-r border-border/50 bg-background/80 backdrop-blur-sm p-6 flex-col fixed h-full">
           <div className="mb-12">
-            <h1 className="text-3xl font-bold animate-gradient">
+            <Link href="/" className="text-3xl font-bold animate-gradient block">
               Geromi
-            </h1>
+            </Link>
             <p className="text-sm text-muted-foreground mt-2">Jeremy Russell</p>
           </div>
 
@@ -194,12 +194,6 @@ export default function Home() {
             </ul>
           </nav>
 
-          {/* Footer */}
-          <div className="mt-auto pt-8 border-t border-border/50">
-            <p className="text-xs text-muted-foreground">
-              © 2024 Geromi. Built with Next.js & love.
-            </p>
-          </div>
         </aside>
 
         {/* Main Content */}
@@ -226,7 +220,7 @@ export default function Home() {
               <div className="space-y-8">
                 {/* Featured Projects Card */}
                 <Link href="/projects" className="block group">
-                  <div className="border-2 border-primary/30 rounded-xl p-6 bg-primary/5 hover:bg-primary/10 hover:border-primary/50 transition-all duration-300">
+                  <div className="border-2 border-primary/30 rounded-xl p-6 bg-white/30 hover:bg-white hover:border-primary/50 transition-all duration-300">
                     <h3 className="text-2xl font-bold mb-3 flex items-center gap-3 text-primary">
                       <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
                         <div className="w-4 h-4 rounded-full bg-primary"></div>
@@ -242,7 +236,7 @@ export default function Home() {
                 {/* Other sections in grid */}
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                   <Link href="/blog" className="block group h-full">
-                    <div className="border-2 border-blue-500/30 rounded-xl p-6 bg-blue-500/5 hover:bg-blue-500/10 hover:border-blue-500/50 transition-all duration-200 h-full">
+                    <div className="border-2 border-blue-500/30 rounded-xl p-6 bg-white/30 hover:bg-white hover:border-blue-500/50 transition-all duration-200 h-full">
                       <h3 className="text-lg font-semibold mb-2 flex items-center gap-2 text-blue-600 dark:text-blue-400">
                         <div className="w-8 h-8 rounded-lg bg-blue-500/10 flex items-center justify-center">
                           <div className="w-3 h-3 rounded-full bg-blue-500"></div>
@@ -250,13 +244,13 @@ export default function Home() {
                         Blog
                       </h3>
                       <p className="text-muted-foreground text-sm">
-                        Coming soon... Check back for thoughts on tech, coding, and life.
+                        Coming soon.
                       </p>
                     </div>
                   </Link>
                   
                   <Link href="/journal" className="block group h-full">
-                    <div className="border-2 border-blue-500/30 rounded-xl p-6 bg-blue-500/5 hover:bg-blue-500/10 hover:border-blue-500/50 transition-all duration-200 h-full">
+                    <div className="border-2 border-blue-500/30 rounded-xl p-6 bg-white/30 hover:bg-white hover:border-blue-500/50 transition-all duration-200 h-full">
                       <h3 className="text-lg font-semibold mb-2 flex items-center gap-2 text-blue-600 dark:text-blue-400">
                         <div className="w-8 h-8 rounded-lg bg-blue-500/10 flex items-center justify-center">
                           <div className="w-3 h-3 rounded-full bg-blue-500"></div>
@@ -270,7 +264,7 @@ export default function Home() {
                   </Link>
                   
                   <Link href="/contact" className="block group h-full">
-                    <div className="border-2 border-blue-500/30 rounded-xl p-6 bg-blue-500/5 hover:bg-blue-500/10 hover:border-blue-500/50 transition-all duration-200 h-full">
+                    <div className="border-2 border-blue-500/30 rounded-xl p-6 bg-white/30 hover:bg-white hover:border-blue-500/50 transition-all duration-200 h-full">
                       <h3 className="text-lg font-semibold mb-2 flex items-center gap-2 text-blue-600 dark:text-blue-400">
                         <div className="w-8 h-8 rounded-lg bg-blue-500/10 flex items-center justify-center">
                           <div className="w-3 h-3 rounded-full bg-blue-500"></div>
